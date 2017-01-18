@@ -10,8 +10,9 @@ function LunchCheckerController($scope) {
   $scope.message = "";
 
   $scope.checkLunch = function () {
-    if ($scope.lunch.trim() == "") {
+    if ($scope.lunch.trim().length == 0) {
       $scope.message = "Please enter data first";
+      return;
     }
     var lunchItems = $scope.lunch.split(',').filter(isNotEmpty);
     checkLunchItems(lunchItems);
