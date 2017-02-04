@@ -40,7 +40,7 @@ function MenuSearchService($http) {
   service.getMatchedMenuItems = function (searchTerm) {
     return $http({
       method: "GET",
-      url: ("http://davids-restaurant.herokuapp.com/menu_items.json")
+      url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
     }).then(function (response) {
       var foundItems = [];
       response.data.menu_items.forEach(function(item, index, array) {
