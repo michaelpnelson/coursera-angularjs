@@ -7,8 +7,9 @@ angular.module('public')
 UserInfoController.$inject = ['$http', 'ApiPath', 'UserService'];
 function UserInfoController($http, ApiPath, UserService) {
   var reg = this;
-  reg.userInfo = UserService.retrieveInfo();
   reg.apiPath = ApiPath;
+  reg.favDishIsValid = false;
+  reg.userInfo = UserService.retrieveInfo();
 
   reg.submit = function() {
     var userInfo = {};
@@ -17,9 +18,20 @@ function UserInfoController($http, ApiPath, UserService) {
     userInfo.email = reg.email;
     userInfo.phone = reg.phone;
     userInfo.favDish = reg.favDish;
+    reg.validateFavDish(reg.favDish);
     UserService.storeInfo(userInfo);
-    reg.completed = true;
-    console.log("reg.completed=" + reg.completed);
+  }
+
+  reg.validateFavDish = function(favDish) {
+    $http.get(ApiPath + '/menu_items/' + favDish + ".json")
+    .then(function(response){
+      reg.favDishNotValid = false;
+      reg.completed = true;
+    })
+    .catch(function(error){
+      reg.favDishNotValid = true;
+      reg.completed = false;
+    });
   }
 }
 
