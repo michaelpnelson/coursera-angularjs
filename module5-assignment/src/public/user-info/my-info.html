@@ -2,12 +2,15 @@
   <h1>My Information</h1>
 
   <div ng-if="reg.userInfo.firstName">
-    <p>First Name: {{reg.userInfo.firstName}}</p>
-    <p>Last Name: {{reg.userInfo.lastName}}</p>
+    <p>{{reg.userInfo.firstName}} {{reg.userInfo.lastName}}</p>
     <p>Email: {{reg.userInfo.email}}</p>
     <p>Phone: {{reg.userInfo.phone}}</p>
     <p>Favourite Dish:</p>
-    <p><img src="{{reg.apiPath}}/images/{{reg.userInfo.favDish}}.jpg"</p>
+    <p>
+      {{reg.userInfo.favDishName}}<br/>
+      <i>{{reg.userInfo.favDishDesc}}</i><br/>
+      <img src="{{reg.apiPath}}/images/{{reg.userInfo.favDishShortName}}.jpg"
+    </p>
   </div>
 
   <div ng-hide="reg.userInfo.firstName">
