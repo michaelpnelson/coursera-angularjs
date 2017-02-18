@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My Information</h1>
+
+  <div ng-if="reg.userInfo.firstName">
+    <p>First Name: {{reg.userInfo.firstName}}</p>
+    <p>Last Name: {{reg.userInfo.lastName}}</p>
+    <p>Email: {{reg.userInfo.email}}</p>
+    <p>Phone: {{reg.userInfo.phone}}</p>
+    <p>Favourite Dish:</p>
+    <p><img src="https://michaelpnelson-cs-angularjs.herokuapp.com/images/{{reg.userInfo.favDish}}.jpg"</p>
+  </div>
+
+  <div ng-hide="reg.userInfo.firstName">
+    Not Signed Up Yet. <a href="#" ui-sref="public.signup">Sign up Now!</a>
+  </div>
+</div>
