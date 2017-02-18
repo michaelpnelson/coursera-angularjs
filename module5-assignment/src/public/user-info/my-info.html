@@ -7,7 +7,7 @@
     <p>Email: {{reg.userInfo.email}}</p>
     <p>Phone: {{reg.userInfo.phone}}</p>
     <p>Favourite Dish:</p>
-    <p><img src="https://michaelpnelson-cs-angularjs.herokuapp.com/images/{{reg.userInfo.favDish}}.jpg"</p>
+    <p><img src="{{reg.apiPath}}/images/{{reg.userInfo.favDish}}.jpg"</p>
   </div>
 
   <div ng-hide="reg.userInfo.firstName">

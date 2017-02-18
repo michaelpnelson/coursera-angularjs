@@ -4,10 +4,11 @@
 angular.module('public')
 .controller('UserInfoController', UserInfoController);
 
-UserInfoController.$inject = ['UserService'];
-function UserInfoController(UserService) {
+UserInfoController.$inject = ['$http', 'ApiPath', 'UserService'];
+function UserInfoController($http, ApiPath, UserService) {
   var reg = this;
   reg.userInfo = UserService.retrieveInfo();
+  reg.apiPath = ApiPath;
 
   reg.submit = function() {
     var userInfo = {};
