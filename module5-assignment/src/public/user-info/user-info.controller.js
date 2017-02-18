@@ -12,14 +12,8 @@ function UserInfoController($http, ApiPath, UserService) {
   reg.userInfo = UserService.retrieveInfo();
 
   reg.submit = function() {
-    var userInfo = {};
-    userInfo.firstName = reg.firstName;
-    userInfo.lastName = reg.lastName;
-    userInfo.email = reg.email;
-    userInfo.phone = reg.phone;
-    userInfo.favDish = reg.favDish;
-    reg.validateFavDish(reg.favDish);
-    UserService.storeInfo(userInfo);
+    reg.validateFavDish(reg.userInfo.favDish);
+    UserService.storeInfo(reg.userInfo);
   }
 
   reg.validateFavDish = function(favDish) {
